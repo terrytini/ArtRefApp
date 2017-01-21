@@ -1,0 +1,16 @@
+/*
+Hex colors:
+EDE5E2    beige
+61D2D6    blue
+EA3556    red
+*/
+
+body {
+  background-color: #EDE5E2;
+  padding: 0 100px;
+}
+
+h1{
+  color: #EA3556;
+  padding: 0 50px;
+}
