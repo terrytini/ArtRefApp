@@ -18,6 +18,97 @@
           <li><a href="#">Link1</a></li>
         </ul>
     </nav>
+
+
     <h1>Hello World!</h1>
+    <div>
+      Select a category for a random reference picture
+    </div>
+    <button onclick="getAll()">All</button>
+    <button onclick="getNature()">Nature</button>
+    <button onclick="getPortrait()">Portrait</button>
+    <button onclick="getStillLife()">Still Life</button>
+    <img id="randpic" / width=100%>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA0jW1qHHoo6wnJLNsPiAah4H0R2-M1KBY",
+        authDomain: "artrefapp.firebaseapp.com",
+        databaseURL: "https://artrefapp.firebaseio.com",
+        storageBucket: "artrefapp.appspot.com",
+        messagingSenderId: "845016325702"
+      };
+      firebase.initializeApp(config);
+
+      var storageRef = firebase.storage().ref();
+      var imgRef = storageRef.child('tigger.png');
+      /*
+      storageRef.child('tigger.png').getDownloadURL().then(function(url){
+        var test = url;
+        var randpic = document.getElementById('randpic');
+        randpic.src = test;
+      }).catch(function (error){
+      });
+      */
+
+      var num=1;    //something wrong with num being undefined at first click
+
+      function getNature(){
+        var numRef = firebase.database().ref().child('naturenum');
+        numRef.on('value', snap => num = snap.val());
+        console.log(num);
+        var randNum = Math.floor(Math.random() * num) + 1
+        console.log(randNum);
+        var addr = 'IMG/Nature/' + randNum + '.jpeg'
+        imgRef = storageRef.child(addr);
+
+        storageRef.child(addr).getDownloadURL().then(function(url){
+          var test = url;
+          var randpic = document.getElementById('randpic');
+          randpic.src = test;
+        }).catch(function (error){
+
+        });
+      }
+
+      function getPortrait(){
+        var numRef = firebase.database().ref().child('naturenum');
+        numRef.on('value', snap => num = snap.val());
+        console.log(num);
+        var randNum = Math.floor(Math.random() * num) + 1
+        console.log(randNum);
+        var addr = 'IMG/Portraits/' + randNum + '.jpeg'
+        imgRef = storageRef.child(addr);
+
+        storageRef.child(addr).getDownloadURL().then(function(url){
+          var test = url;
+          var randpic = document.getElementById('randpic');
+          randpic.src = test;
+        }).catch(function (error){
+
+        });
+      }
+
+      function getStillLife(){
+        var numRef = firebase.database().ref().child('naturenum');
+        numRef.on('value', snap => num = snap.val());
+        console.log(num);
+        var randNum = Math.floor(Math.random() * num) + 1
+        console.log(randNum);
+        var addr = 'IMG/StillLife/' + randNum + '.jpeg'
+        imgRef = storageRef.child(addr);
+
+        storageRef.child(addr).getDownloadURL().then(function(url){
+          var test = url;
+          var randpic = document.getElementById('randpic');
+          randpic.src = test;
+        }).catch(function (error){
+
+        });
+      }
+    </script>
   </body>
 </html>
