@@ -12,7 +12,7 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href ="#">Art Reference \o/</a>
+        <a class="navbar-brand" href ="#">Random References</a>
         </div>
         <ul class="nav navbar-nav">
           <li><a href="#">Link1</a></li>
@@ -77,9 +77,9 @@
       function getPortrait(){
         var numRef = firebase.database().ref().child('naturenum');
         numRef.on('value', snap => num = snap.val());
-        console.log(num);
+        //console.log(num);
         var randNum = Math.floor(Math.random() * num) + 1
-        console.log(randNum);
+        //console.log(randNum);
         var addr = 'IMG/Portraits/' + randNum + '.jpeg'
         imgRef = storageRef.child(addr);
 
@@ -95,9 +95,9 @@
       function getStillLife(){
         var numRef = firebase.database().ref().child('naturenum');
         numRef.on('value', snap => num = snap.val());
-        console.log(num);
+        //console.log(num);
         var randNum = Math.floor(Math.random() * num) + 1
-        console.log(randNum);
+        //console.log(randNum);
         var addr = 'IMG/StillLife/' + randNum + '.jpeg'
         imgRef = storageRef.child(addr);
 
@@ -108,6 +108,20 @@
         }).catch(function (error){
 
         });
+      }
+
+      function getAll(){
+        var randNum = Math.floor(Math.random() * 3) + 1
+        //console.log('get all rand num: ' + randNum);
+        if(randNum == 1){
+          getNature();
+        }
+        else if(randNum == 2){
+          getPortrait();
+        }
+        else{
+          getStillLife();
+        }
       }
     </script>
   </body>
