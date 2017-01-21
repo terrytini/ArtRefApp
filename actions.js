@@ -1,20 +1,17 @@
-$(document).ready(function() {
-  var xml = new XMLHttpRequest();
-  xhttp.onreadystatechange = functon() {
-    if (this.readyState == 4 && this.status == 200) {
-      myFunction(this);
-    }
-  };
-
-});
-
-myFunction(xml) {
-  searchtype=image
-  start=0
-  &num=5
-  &q=monkey
-  &as_filetype=png
-  &client=google-csbe
-  &output=xml_no_dtd
-  &cx=00255077836266642015:u-scht7a-8i
-}
+// $(document).ready(function() {
+//   // customSearchOptions['disableWebSearch'] = true;
+//
+//   $.ajax({
+//     searchType: "image",
+//     url: 'https://cse.google.com/cse.js?cx=' + cx,
+//     cx: 'AIzaSyBM1D20tqAinyoN2znX2KjiXU1AfuJnBRQ',
+//     q: 'monkey',
+//     as_filetype: 'png',
+//     client: 'google-csbe',
+//     output: 'xml_no_dtd',
+//     success: function (result) {
+//       console.log("Submitted");
+//       console.log(this);
+//     }
+//   });
+// });

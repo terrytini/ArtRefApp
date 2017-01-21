@@ -21,6 +21,19 @@
     </nav>
     <h1>Hello World!</h1>
     <img id="images" src =""/>
+    <script>
+      (function() {
+        searchType = "image";
+        var cx = '016538260097473910397:ekq_vzky7gw';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        q = 'monkey';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+    <gcse:search></gcse:search>
   </body>
-  <script src="http://maps.googleapis.com/maps/api/js?key=YOUR_KEY"></script>
 </html>
